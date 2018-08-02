@@ -18,7 +18,10 @@ const cn = {
 		address: '地址',
 		label: '标签',
 		home: '家',
-		company: '公司'
+		company: '公司',
+		oneweek: '最近一周',
+		onemonth: '最近一个月',
+		threemonths : '最近三个月'
 	},
 	...enLocale
 }

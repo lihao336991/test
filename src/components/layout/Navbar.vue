@@ -2,7 +2,7 @@
   <div class="">
     <el-menu :default-active="activeIndex" class="navbar-tag" mode="horizontal" @select="handleSelect"
     background-color="gray" text-color="white" active-text-color="orange">
-      <el-menu-item index="1">豆瓣</el-menu-item> 
+      <el-menu-item index="1">豆瓣</el-menu-item>
       <el-menu-item index="2">读书</el-menu-item>
       <el-menu-item index="3">电影</el-menu-item>
       <el-menu-item index="4">音乐</el-menu-item>   
@@ -22,7 +22,7 @@
     </el-menu>
     <el-row style="background:#f2f2f2;height:100px" class="navbar-search" :gutter="20">
       <div class="center">
-      <el-button type="text" style="font-size:32px;float:left;width:127px">豆瓣音乐</el-button>
+      <el-button type="text" style="font-size:32px;float:left;width:127px">我的主页</el-button>
       <div class="span-search"> 
         <el-input placeholder="请输入内容" v-model="input1">   
           <el-button slot="append" icon="el-icon-search"></el-button>
@@ -33,9 +33,9 @@
     <div  class="center">
     <el-menu :default-active="activeIndex" class="navbar-title" mode="horizontal" @select="handleSelect"
      text-color="gray" active-text-color="orange">
-      <el-menu-item index="1">音乐人</el-menu-item> 
-      <el-menu-item index="2">潮潮豆瓣音乐周</el-menu-item>
-      <el-menu-item index="3">金羊毛计划</el-menu-item>
+      <router-link to="/i18n"><el-menu-item index="1">国际化</el-menu-item></router-link> 
+      <router-link to="/editor"><el-menu-item index="2">富文本</el-menu-item></router-link> 
+      <router-link to="/vuex"><el-menu-item index="3">vuex</el-menu-item></router-link>
       <el-menu-item index="4">专题</el-menu-item>   
       <el-menu-item index="5">排行榜</el-menu-item>
       <el-menu-item index="6">分类浏览</el-menu-item>

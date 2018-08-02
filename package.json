@@ -10,13 +10,15 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "echarts": "^4.1.0",
     "element-ui": "^2.4.0",
     "mixin-object": "^3.0.0",
     "node-sass": "^4.9.0",
     "prettier": "^1.12.1",
     "vue": "^2.5.2",
     "vue-i18n": "^8.0.0",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

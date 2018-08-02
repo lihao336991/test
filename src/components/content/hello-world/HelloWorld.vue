@@ -61,7 +61,7 @@
   
 </template>
 <script>
-	import ChangeLanguage from '@/components/common-components/ChangeLanguage'
+	import ChangeLanguage from './../../common-components/ChangeLanguage'
  export default {
  		components: { ChangeLanguage },
     data() {
@@ -129,15 +129,7 @@
         return row[property] === value;
       },
       setLang(v){
-//    	console.log()
-//    	 if(v==='en-US'){
-//     this._i18n.locale = "en-US";
-//    　　locale.use(enLocale)
-//    }else{
-//        this._i18n.locale = "zh-CN";
-//        locale.use(zhLocale)
-//    }
-//   $.cookie("language", this._i18n.locale === "" ?this._i18n.locale = "zh-CN" : this._i18n.locale,{ expires: 1, path: '/' });
+      	
  		 },
     }
   }
