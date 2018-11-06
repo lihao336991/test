@@ -12,6 +12,6 @@ var router = new Router({
         children: [
             ...Content.routes
         ]
-    }]
+    }, ]
 })
 export default router

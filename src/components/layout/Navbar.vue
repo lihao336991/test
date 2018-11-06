@@ -24,8 +24,8 @@
       <div class="center">
       <el-button type="text" style="font-size:32px;float:left;width:127px">我的主页</el-button>
       <div class="span-search"> 
-        <el-input placeholder="请输入内容" v-model="input1">   
-          <el-button slot="append" icon="el-icon-search"></el-button>
+        <el-input placeholder="请输入内容" v-model="input">   
+          <el-button slot="append" icon="el-icon-search" @click="search"></el-button>
         </el-input>
       </div>
       </div>
@@ -36,9 +36,9 @@
       <router-link to="/i18n"><el-menu-item index="1">国际化</el-menu-item></router-link> 
       <router-link to="/editor"><el-menu-item index="2">富文本</el-menu-item></router-link> 
       <router-link to="/vuex"><el-menu-item index="3">vuex</el-menu-item></router-link>
-      <el-menu-item index="4">专题</el-menu-item>   
-      <el-menu-item index="5">排行榜</el-menu-item>
-      <el-menu-item index="6">分类浏览</el-menu-item>
+      <router-link to="/to-html"><el-menu-item index="4">转html</el-menu-item></router-link>  
+      <router-link to="/socket"><el-menu-item index="5">socket</el-menu-item></router-link>
+      <router-link to="/socket-list"><el-menu-item index="6">分类浏览</el-menu-item></router-link>
       <el-menu-item index="7">乐评</el-menu-item>
       <el-menu-item index="8">豆瓣FM</el-menu-item>
       <el-menu-item index="9">歌单</el-menu-item>
@@ -55,13 +55,19 @@ export default {
       return {
         activeIndex: '1',
         activeIndex2: '1',
-        input1:''
+        input:''
       };
     },
     methods: {
       handleSelect(key, keyPath) {
         console.log(key, keyPath);
-      }
+      },
+      search(){
+        if(this.$route.name == 'Vuex') {
+          // this.$store.state.author = this.input;
+          this.$store.commit('setState', this.input)
+        }
+      },
     }
   }
 </script>

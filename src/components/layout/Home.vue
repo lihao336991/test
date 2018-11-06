@@ -18,7 +18,9 @@ export default {
     Navbar
   },
   methods: {
-      
+      createdt(){
+        console.log(123)
+      }
   },
 }
 </script>
