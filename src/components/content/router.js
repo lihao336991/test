@@ -22,7 +22,7 @@ const routes = [{
     name: 'to-html',
     component: ToHtml
 }, {
-    path: "/socket",
+    path: "/socket/:id",
     name: 'socket',
     component: iSocket
 }, {

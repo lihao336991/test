@@ -1,6 +1,6 @@
 <template>
   <div>
-    <script id="editor" type="text/plain" ></script>
+    <script :id="uid" type="text/plain" ></script>
   </div>
 </template>
 
@@ -12,7 +12,7 @@
   export default {
     name: "UEditor",
     props: {
-      id: {
+      uid: {
           type: String
       },
       config: {
@@ -26,8 +26,8 @@
     },
     mounted() {
       //初始化UE
-      this.editor = UE.delEditor("editor");
-      this.editor = UE.getEditor('editor',this.config);
+      this.editor = UE.delEditor(this.uid);
+      this.editor = UE.getEditor(this.uid,this.config);
       //添加observer，学着点！！！
       var _this = this
       this.editor.addListener("contentChange", function () {

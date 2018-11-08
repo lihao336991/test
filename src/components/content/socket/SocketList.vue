@@ -1,6 +1,6 @@
 <template>
 <div class="container">
-    <el-button @click="edit('add')">新增文档</el-button>
+    <el-button type="warning" @click="dialogVisible=true">新增文档</el-button>
     <el-table
       :data="tableData"
       style="width: 100%">
@@ -14,6 +14,11 @@
         label="创建时间"
         width="">
       </el-table-column>
+      <el-table-column
+        prop="name"
+        label="名称"
+        width="">
+      </el-table-column>
        <el-table-column
       fixed="right"
       label="操作"
@@ -24,6 +29,16 @@
       </template>
     </el-table-column>
     </el-table>
+    <el-dialog
+  title="请输入文档名"
+  :visible.sync="dialogVisible"
+  width="30%">
+  <el-input v-model="name"></el-input>
+  <span slot="footer" class="dialog-footer">
+    <el-button @click="dialogVisible = false">取 消</el-button>
+    <el-button type="primary" @click="dialogVisible = false;edit('add')">确 定</el-button>
+  </span>
+</el-dialog>
 </div>
      
 </template>
@@ -32,7 +47,10 @@ import Interface from '@/util/interface.js';
 export default {
     data(){
         return{
-            tableData:[]
+            tableData:[],
+            dialogVisible:false,
+            name:'',
+
         }
     },
     created(){
@@ -62,21 +80,23 @@ export default {
                 }
             })
         },
-        edit(type,row){
+        edit(type,row){            
             sessionStorage.setItem('type',type)
             if(type == 'edit'){
                 sessionStorage.setItem('id',row.id)
-            }else{
+                this.$router.push(`/socket/${row.id}`)
+            }else{                
                 let arr = []
                 let params = {
-                    task:JSON.stringify(arr)
+                    task:JSON.stringify(arr),
+                    name:this.name
                 }
                 Interface.getData('post',Interface.task.list,params).then(res=>{
                     console.log(res)
                     sessionStorage.setItem('id',res.data.data.insertId)
+                    this.$router.push(`/socket/${res.data.data.insertId}`)
                 })
             }
-            this.$router.push('/socket')
         }
     }
 }

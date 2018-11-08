@@ -9,7 +9,7 @@ let axiosConfig = {
     maxContentLength: 5000
 }
 if (location.hostname == 'localhost') {
-    axiosConfig.baseURL = 'http://39.107.233.105:3000';
+    axiosConfig.baseURL = 'http://localhost:3000';
 } else {
     axiosConfig.baseURL = 'http://39.107.233.105:3000';
 }
